@@ -1,0 +1,15 @@
+describe('Login User with incorrect email and password', ()=> {
+    it('User login with incorrect email and password', ()=> {
+        cy.visit('http://automationexercise.com')
+     cy.get('a[href="/contact_us"]').click()
+     cy.get('div.contact-form > .title').should('be.visible')
+     cy.get('input[placeholder="Name"]').type('newuser001')
+     cy.get('input[placeholder="Email"]').type('newuser001@gmail.com')
+    cy.get('input[placeholder="Subject"]').type('I am a newuser001')
+    cy.get('#message').type('Information from the newuser001')
+    cy.get(':nth-child(6) > .form-control').dblclick()
+   cy.get('input[value="Submit"]').click()
+   cy.get('.status.alert.alert-success').should('have.text','Success! Your details have been submitted successfully.')
+   cy.get('.btn.btn-success').click()
+    })
+})
